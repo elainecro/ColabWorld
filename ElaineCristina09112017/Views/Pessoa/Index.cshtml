@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ElaineCristina09112017.Pessoa>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STRNOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STRCPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DTNASCIMENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STRNOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STRCPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DTNASCIMENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DTCADASTRO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDPESSOA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDPESSOA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDPESSOA })
+        </td>
+    </tr>
+}
+    
+</table>

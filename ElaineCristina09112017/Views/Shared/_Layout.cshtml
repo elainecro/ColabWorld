@@ -1,0 +1,22 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Css/Site.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                <li>@Html.ActionLink("Empresas", "Index", "Empresa")</li>
+                <li>@Html.ActionLink("Pessoas", "Index", "Pessoa")</li>
+                <li>@Html.ActionLink("Colaboradores", "Index", "Colaborador")</li>
+            </ul>
+            <h3 class="muted-text">Colab World</h3>
+        </div>
+        <div id="conteudo">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

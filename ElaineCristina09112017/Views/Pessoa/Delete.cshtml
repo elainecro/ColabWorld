@@ -1,0 +1,50 @@
+﻿@model ElaineCristina09112017.Pessoa
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PESSOA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STRNOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STRNOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCPF)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.STRCPF)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTNASCIMENTO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTNASCIMENTO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
+    
+    </dl>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+    
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

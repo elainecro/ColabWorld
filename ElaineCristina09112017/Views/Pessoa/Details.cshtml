@@ -1,0 +1,44 @@
+﻿@model ElaineCristina09112017.Pessoa
+
+<div>
+    <h4>PESSOA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STRNOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STRNOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCPF)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.STRCPF)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTNASCIMENTO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTNASCIMENTO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
+    
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDPESSOA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
