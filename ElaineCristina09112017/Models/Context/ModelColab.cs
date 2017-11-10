@@ -12,8 +12,8 @@ namespace ElaineCristina09112017
         {
         }
 
-        public virtual DbSet<Colaborador> COLABORADORs { get; set; }
-        public virtual DbSet<Empresa> EMPRESAs { get; set; }
+        public virtual DbSet<Colaborador> Colaboradores { get; set; }
+        public virtual DbSet<Empresa> Empresas { get; set; }
         public virtual DbSet<Pessoa> Pessoas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

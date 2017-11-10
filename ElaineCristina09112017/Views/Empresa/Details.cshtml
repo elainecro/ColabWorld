@@ -1,38 +1,30 @@
-﻿@model ElaineCristina09112017.Pessoa
+﻿@model ElaineCristina09112017.Empresa
 
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page">Pessoas</li>
+        <li class="breadcrumb-item" aria-current="page">Empresas</li>
         <li class="breadcrumb-item active" aria-current="page">Visualizar</li>
     </ol>
 </nav>
 
 <div>
-    <h4>PESSOA</h4>
+    <h4>Empresa</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.STRNOME)
         </dt>
-
+    
         <dd>
             @Html.DisplayFor(model => model.STRNOME)
         </dd>
-
+    
         <dt>
-            @Html.DisplayNameFor(model => model.STRCPF)
+            @Html.DisplayNameFor(model => model.STRCNPJ)
         </dt>
     
         <dd>
-            @Html.DisplayFor(model => model.STRCPF)
-        </dd>
-    
-        <dt>
-            @Html.DisplayNameFor(model => model.DTNASCIMENTO)
-        </dt>
-    
-        <dd>
-            @Html.DisplayFor(model => model.DTNASCIMENTO)
+            @Html.DisplayFor(model => model.STRCNPJ)
         </dd>
     
         <dt>
@@ -43,9 +35,17 @@
             @Html.DisplayFor(model => model.DTCADASTRO)
         </dd>
     
+        <dt>
+            @Html.DisplayNameFor(model => model.STRRAZAOSOCIAL)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.STRRAZAOSOCIAL)
+        </dd>
+    
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.IDPESSOA }) |
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDEMPRESA }) |
     @Html.ActionLink("Voltar", "Index")
 </p>

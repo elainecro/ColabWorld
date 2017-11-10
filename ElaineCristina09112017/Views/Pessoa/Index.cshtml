@@ -1,8 +1,19 @@
 ﻿@model IEnumerable<ElaineCristina09112017.Pessoa>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Pessoas</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-2">
+        @Html.ActionLink("Cadastrar Pessoa", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+
 <table class="table">
     <tr>
         <th>
@@ -35,9 +46,9 @@
             @Html.DisplayFor(modelItem => item.DTCADASTRO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDPESSOA }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDPESSOA }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDPESSOA })
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDPESSOA }) |
+            @Html.ActionLink("Visualizar", "Details", new { id=item.IDPESSOA }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IDPESSOA })
         </td>
     </tr>
 }

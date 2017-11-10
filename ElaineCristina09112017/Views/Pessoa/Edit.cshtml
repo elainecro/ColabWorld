@@ -1,5 +1,11 @@
 ﻿@model ElaineCristina09112017.Pessoa
 
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Pessoas</li>
+        <li class="breadcrumb-item active" aria-current="page">Editar</li>
+    </ol>
+</nav>
 
 @using (Html.BeginForm())
 {
@@ -45,12 +51,19 @@
     
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />&nbsp;&nbsp;
+                @Html.ActionLink("Voltar", "Index", "Pessoa", null, new { @class = "btn btn-default" })
             </div>
         </div>
     </div>
 }
-    
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+<script>
+$(document).ready(function(){
+
+    $("#STRCPF").mask('000.000.000-00', { placeholder: "___.___.___-___" }, { reverse: true });
+    $("#DTCADASTRO").mask("00/00/0000", {placeholder: "__/__/____"});
+    $("#DTNASCIMENTO").mask("00/00/0000", {placeholder: "__/__/____"});
+
+});
+</script>

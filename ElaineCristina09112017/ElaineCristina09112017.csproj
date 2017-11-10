@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -96,12 +97,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css\padrao.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\padrao.css" />
+    <Content Include="Content\css\singin.css" />
+    <Content Include="Content\js\jquery.mask.js" />
+    <Content Include="Content\js\jquery.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ColaboradorController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Models\Context\Colaborador.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -124,6 +131,16 @@
     <Content Include="Views\Pessoa\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Empresa\Create.cshtml" />
+    <Content Include="Views\Empresa\Delete.cshtml" />
+    <Content Include="Views\Empresa\Details.cshtml" />
+    <Content Include="Views\Empresa\Edit.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Colaborador\Create.cshtml" />
+    <Content Include="Views\Colaborador\Delete.cshtml" />
+    <Content Include="Views\Colaborador\Details.cshtml" />
+    <Content Include="Views\Colaborador\Edit.cshtml" />
+    <Content Include="Views\Colaborador\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ElaineCristina09112017.Colaborador>
+
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EMPRESA.STRNOME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PESSOA.STRNOME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VLRSALARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BSTATUS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DTCADASTRO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DTDEMISSAO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STRCARGO)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMPRESA.STRNOME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PESSOA.STRNOME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VLRSALARIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BSTATUS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DTCADASTRO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DTDEMISSAO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STRCARGO)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IDCOLAB }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IDCOLAB }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IDCOLAB })
+            </td>
+        </tr>
+    }
+    
+    </table>

@@ -1,8 +1,8 @@
-﻿@model ElaineCristina09112017.Pessoa
+﻿@model ElaineCristina09112017.Empresa
 
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page">Pessoas</li>
+        <li class="breadcrumb-item" aria-current="page">Empresas</li>
         <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
     </ol>
 </nav>
@@ -12,10 +12,9 @@
     @Html.AntiForgeryToken()
         
     <div class="form-horizontal">
-        <h4>PESSOA</h4>
+        <h4>Empresa</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="form-group">
             @Html.LabelFor(model => model.STRNOME, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -23,20 +22,12 @@
                 @Html.ValidationMessageFor(model => model.STRNOME, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.STRCPF, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.STRCPF, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.STRCPF, "", new { @class = "text-danger" })
-            </div>
-        </div>
     
         <div class="form-group">
-            @Html.LabelFor(model => model.DTNASCIMENTO, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.STRCNPJ, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DTNASCIMENTO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DTNASCIMENTO, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.STRCNPJ, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.STRCNPJ, "", new { @class = "text-danger" })
             </div>
         </div>
     
@@ -49,20 +40,27 @@
         </div>
     
         <div class="form-group">
+            @Html.LabelFor(model => model.STRRAZAOSOCIAL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.STRRAZAOSOCIAL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.STRRAZAOSOCIAL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Salvar" class="btn btn-primary" />&nbsp;&nbsp;
-                @Html.ActionLink("Voltar", "Index", "Pessoa", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Voltar", "Index", "Empresa", null, new { @class="btn btn-default"})
             </div>
         </div>
     </div>
 }
-    
+
 <script>
 $(document).ready(function(){
 
-    $("#STRCPF").mask('000.000.000-00', { placeholder: "___.___.___-___"}, { reverse: true });
+    $("#STRCNPJ").mask('00.000.000/0000-00', { reverse: true });
     $("#DTCADASTRO").mask("00/00/0000", { placeholder: "__/__/____" });
-    $("#DTNASCIMENTO").mask("00/00/0000", { placeholder: "__/__/____" });
 
 });
 </script>
