@@ -35,7 +35,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.STRNOME)
         </td>
-        <td>
+        <td id="tdCNPJ">
             @Html.DisplayFor(modelItem => item.STRCNPJ)
         </td>
         <td>
@@ -53,3 +53,11 @@
 }
     
 </table>
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#tdCNPJ").mask('00.000.000/0000-00');
+    });
+</script>

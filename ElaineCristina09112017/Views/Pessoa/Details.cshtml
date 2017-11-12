@@ -23,7 +23,7 @@
             @Html.DisplayNameFor(model => model.STRCPF)
         </dt>
     
-        <dd>
+        <dd id="tdCPF">
             @Html.DisplayFor(model => model.STRCPF)
         </dd>
     
@@ -49,3 +49,9 @@
     @Html.ActionLink("Editar", "Edit", new { id = Model.IDPESSOA }) |
     @Html.ActionLink("Voltar", "Index")
 </p>
+
+<script>
+    $(document).ready(function () {
+        $("#tdCPF").mask('000.000.000-00');
+    });
+</script>

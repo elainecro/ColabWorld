@@ -25,7 +25,7 @@
             @Html.DisplayNameFor(model => model.STRCPF)
         </dt>
     
-        <dd>
+        <dd id="tdCPF">
             @Html.DisplayFor(model => model.STRCPF)
         </dd>
     
@@ -56,3 +56,9 @@
         </div>
     }
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#tdCPF").mask('000.000.000-00');
+    });
+</script>

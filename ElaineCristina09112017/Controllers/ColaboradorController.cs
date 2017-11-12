@@ -49,6 +49,7 @@ namespace ElaineCristina09112017.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IDCOLAB,IDPESSOA,IDEMPRESA,VLRSALARIO,BSTATUS,DTCADASTRO,DTDEMISSAO,STRCARGO")] Colaborador colaborador)
         {
+            //colaborador.VLRSALARIO = Convert.ToDecimal(colaborador.VLRSALARIO.ToString().Replace(".", ""));
             if (ModelState.IsValid)
             {
                 db.Colaboradores.Add(colaborador);

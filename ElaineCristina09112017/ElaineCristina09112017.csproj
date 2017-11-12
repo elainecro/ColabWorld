@@ -110,6 +110,7 @@
     <Compile Include="Controllers\ColaboradorController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Helpers\DecimalModelBinder.cs" />
     <Compile Include="Models\Context\Colaborador.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Context\Empresa.cs" />

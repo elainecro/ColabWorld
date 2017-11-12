@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.STRCNPJ)
         </dt>
     
-        <dd>
+        <dd id="tdCNPJ">
             @Html.DisplayFor(model => model.STRCNPJ)
         </dd>
     
@@ -56,3 +56,8 @@
     }
 </div>
 
+<script>
+    $(document).ready(function () {
+        $("#tdCNPJ").mask('00.000.000/0000-00');
+    });
+</script>

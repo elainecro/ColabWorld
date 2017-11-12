@@ -16,7 +16,7 @@ namespace ElaineCristina09112017
 
         public int? IDEMPRESA { get; set; }
 
-        [Column(TypeName = "numeric")]
+        //[Column(TypeName = "numeric")]
         [Display(Name = "Salário")]
         [Required(ErrorMessage ="Preencha o salário do colaborador")]
         public decimal? VLRSALARIO { get; set; }

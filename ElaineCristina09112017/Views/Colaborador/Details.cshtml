@@ -1,68 +1,82 @@
 ﻿@model ElaineCristina09112017.Colaborador
 
-    <div>
-        <h4>Colaborador</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.EMPRESA.STRNOME)
-            </dt>
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Colaboradores</li>
+        <li class="breadcrumb-item active" aria-current="page">Visualizar</li>
+    </ol>
+</nav>
+
+<div>
+    <h4>Colaborador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPRESA.STRNOME)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.EMPRESA.STRNOME)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.EMPRESA.STRNOME)
+        </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.PESSOA.STRNOME)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.PESSOA.STRNOME)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.PESSOA.STRNOME)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.PESSOA.STRNOME)
+        </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.VLRSALARIO)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.VLRSALARIO)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.VLRSALARIO)
-            </dd>
+        <dd id="tdSalario">
+            @Html.DisplayFor(model => model.VLRSALARIO)
+        </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.BSTATUS)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.BSTATUS)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.BSTATUS)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.BSTATUS)
+        </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.DTCADASTRO)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.DTCADASTRO)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.DTDEMISSAO)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.DTDEMISSAO)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.DTDEMISSAO)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.DTDEMISSAO)
+        </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.STRCARGO)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCARGO)
+        </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.STRCARGO)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.STRCARGO)
+        </dd>
     
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.IDCOLAB }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDCOLAB }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
+
+<script>
+    $(document).ready(function () {
+
+        $("#tdSalario").mask("#.##0,00");
+    });
+</script>
