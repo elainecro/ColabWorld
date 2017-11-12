@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ElaineCristina09112017.Colaborador>
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Colaboradores</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-2">
+        @Html.ActionLink("Cadastrar Colaborador", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPRESA.STRNOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PESSOA.STRNOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VLRSALARIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BSTATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DTDEMISSAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STRCARGO)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPRESA.STRNOME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PESSOA.STRNOME)
+        </td>
+        <td id="tdSalario">
+            @Html.DisplayFor(modelItem => item.VLRSALARIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BSTATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DTCADASTRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DTDEMISSAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STRCARGO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDCOLAB }) |
+            @Html.ActionLink("Visualizar", "Details", new { id=item.IDCOLAB }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IDCOLAB })
+        </td>
+    </tr>
+}
+    
+</table>
+
+<script>
+    $(document).ready(function () {
+
+        $("#tdSalario").mask("#.##0,00");
+    });
+</script>

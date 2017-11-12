@@ -143,6 +143,7 @@
     <Content Include="Views\Colaborador\Details.cshtml" />
     <Content Include="Views\Colaborador\Edit.cshtml" />
     <Content Include="Views\Colaborador\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

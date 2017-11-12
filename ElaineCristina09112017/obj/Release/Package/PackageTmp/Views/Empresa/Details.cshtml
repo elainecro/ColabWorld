@@ -1,0 +1,57 @@
+﻿@model ElaineCristina09112017.Empresa
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Empresas</li>
+        <li class="breadcrumb-item active" aria-current="page">Visualizar</li>
+    </ol>
+</nav>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STRNOME)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.STRNOME)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCNPJ)
+        </dt>
+    
+        <dd id="tdCNPJ">
+            @Html.DisplayFor(model => model.STRCNPJ)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.STRRAZAOSOCIAL)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.STRRAZAOSOCIAL)
+        </dd>
+    
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDEMPRESA }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
+
+<script>
+    $(document).ready(function () {
+        $("#tdCNPJ").mask('00.000.000/0000-00');
+    });
+</script>

@@ -1,0 +1,109 @@
+﻿@model ElaineCristina09112017.Colaborador
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Colaboradores</li>
+        <li class="breadcrumb-item active" aria-current="page">Visualizar</li>
+    </ol>
+</nav>
+
+<div>
+    <h4>Colaborador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPRESA.STRNOME)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.EMPRESA.STRNOME)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.PESSOA.STRNOME)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.PESSOA.STRNOME)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.VLRSALARIO)
+        </dt>
+    
+        <dd id="tdSalario">
+            @Html.DisplayFor(model => model.VLRSALARIO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.BSTATUS)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.BSTATUS)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTDEMISSAO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTDEMISSAO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCARGO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.STRCARGO)
+        </dd>
+    
+    </dl>
+
+    @if (ViewBag.historicoColab != null)
+    {
+        <table class="table">
+            <tr>
+                <td colspan="5"><b>Histórico</b></td>
+            </tr>
+            <tr>
+                <th>Empresa</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+                <th>Admissão</th>
+                <th>Demissão</th>
+            </tr>
+            @foreach (var historico in ViewBag.historicoColab)
+            {
+                <tr>
+                    <td>@historico.EMPRESA.STRNOME</td>
+                    <td>@historico.STRCARGO</td>
+                    <td id="histSalario">@historico.VLRSALARIO</td>
+                    <td id="histAdmissao">@historico.DTCADASTRO</td>
+                    <td id="histDemissao">@historico.DTDEMISSAO</td>
+                </tr>
+
+            }
+        </table>
+    }
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDCOLAB }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
+
+<script>
+    $(document).ready(function () {
+
+        $("#tdSalario").mask("#.##0,00");
+    });
+</script>

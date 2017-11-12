@@ -1,0 +1,64 @@
+﻿@model ElaineCristina09112017.Pessoa
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Pessoas</li>
+        <li class="breadcrumb-item active" aria-current="page">Deletar</li>
+    </ol>
+</nav>
+
+
+<h3>Tem certeza que deseja apagar o registro?</h3>
+<div>
+    <h4>PESSOA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STRNOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STRNOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCPF)
+        </dt>
+    
+        <dd id="tdCPF">
+            @Html.DisplayFor(model => model.STRCPF)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTNASCIMENTO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTNASCIMENTO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
+    
+    </dl>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+    
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-danger" /> &nbsp;&nbsp;
+            @Html.ActionLink("Voltar", "Index", "Pessoa", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#tdCPF").mask('000.000.000-00');
+    });
+</script>

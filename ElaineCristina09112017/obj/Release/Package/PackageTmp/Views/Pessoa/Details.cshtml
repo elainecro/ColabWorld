@@ -1,0 +1,93 @@
+﻿@model ElaineCristina09112017.Pessoa
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Pessoas</li>
+        <li class="breadcrumb-item active" aria-current="page">Visualizar</li>
+    </ol>
+</nav>
+
+<div>
+    <h4>PESSOA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STRNOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STRNOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STRCPF)
+        </dt>
+    
+        <dd id="tdCPF">
+            @Html.DisplayFor(model => model.STRCPF)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTNASCIMENTO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTNASCIMENTO)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.DTCADASTRO)
+        </dt>
+    
+        <dd>
+            @Html.DisplayFor(model => model.DTCADASTRO)
+        </dd>
+    
+    </dl>
+
+    @if (ViewBag.historicoColab != null)
+    {
+        <table class="table">
+            <tr>
+                <td colspan="5"><b>Histórico</b></td>
+            </tr>
+            <tr>
+                <th>Empresa</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+                <th>Admissão</th>
+                <th>Demissão</th>
+            </tr>
+            @foreach (var historico in ViewBag.historicoColab)
+            {
+                <tr>
+                    <td>@historico.EMPRESA.STRNOME</td>
+                    <td>@historico.STRCARGO</td>
+                    <td id="histSalario">@historico.VLRSALARIO</td>
+                    <td id="histAdmissao">@historico.DTCADASTRO</td>
+                    <td id="histDemissao">@historico.DTDEMISSAO</td>
+                </tr>
+
+            }
+        </table>
+    }
+
+    
+    
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDPESSOA }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
+
+<script>
+    $(document).ready(function () {
+        $("#tdCPF").mask('000.000.000-00');
+
+        $("#histSalario").mask("#.##0,00");
+
+        $("#histAdmissao").mask("00/00/0000");
+        $("#histDemissao").mask("00/00/0000");
+    });
+</script>
+
