@@ -68,6 +68,33 @@
         </dd>
     
     </dl>
+
+    @if (ViewBag.historicoColab != null)
+    {
+        <table class="table">
+            <tr>
+                <td colspan="5"><b>Histórico</b></td>
+            </tr>
+            <tr>
+                <th>Empresa</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+                <th>Admissão</th>
+                <th>Demissão</th>
+            </tr>
+            @foreach (var historico in ViewBag.historicoColab)
+            {
+                <tr>
+                    <td>@historico.EMPRESA.STRNOME</td>
+                    <td>@historico.STRCARGO</td>
+                    <td id="histSalario">@historico.VLRSALARIO</td>
+                    <td id="histAdmissao">@historico.DTCADASTRO</td>
+                    <td id="histDemissao">@historico.DTDEMISSAO</td>
+                </tr>
+
+            }
+        </table>
+    }
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.IDCOLAB }) |

@@ -28,6 +28,7 @@ namespace ElaineCristina09112017.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Pessoa pessoa = db.Pessoas.Find(id);
+            ViewBag.historicoColab = db.Colaboradores.Where(c => c.IDPESSOA == id).OrderBy(c => c.DTCADASTRO).ToList();
             if (pessoa == null)
             {
                 return HttpNotFound();
