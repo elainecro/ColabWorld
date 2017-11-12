@@ -29,7 +29,12 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.STRCPF, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.STRCPF, "", new { @class = "text-danger" })
-            </div>
+                @Html.ValidationMessage("pessoa.Existe", "", new { @class = "text-danger" })
+
+                <div class="text-danger" id="cpfInvalido" style="display:none;">
+                    CPF inválido!
+                </div>
+            </div>            
         </div>
     
         <div class="form-group">
@@ -62,7 +67,21 @@ $(document).ready(function(){
 
     $("#STRCPF").mask('000.000.000-00', { placeholder: "___.___.___-___"}, { reverse: true });
     $("#DTCADASTRO").mask("00/00/0000", { placeholder: "__/__/____" });
+
+    var data = new Date();
+    var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
+    $("#DTCADASTRO").val(dataFormatada);
+
     $("#DTNASCIMENTO").mask("00/00/0000", { placeholder: "__/__/____" });
+
+    $("#STRCPF").blur(function () {
+        if (!validarCPF($(this).val())) {
+            $("#cpfInvalido").css("display", "block");
+            $("STRCPF").focus();
+        } else {
+            $("#cpfInvalido").css("display", "none");
+        }
+    });
 
 });
 </script>

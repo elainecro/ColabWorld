@@ -28,6 +28,11 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.STRCNPJ, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.STRCNPJ, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("empresa.Existe", "", new { @class = "text-danger" })
+
+                <div class="text-danger" id="cnpjInvalido" style="display:none;">
+                    CNPJ inválido!
+                </div>
             </div>
         </div>
     
@@ -60,7 +65,20 @@
 $(document).ready(function(){
 
     $("#STRCNPJ").mask('00.000.000/0000-00', { reverse: true });
+
     $("#DTCADASTRO").mask("00/00/0000", { placeholder: "__/__/____" });
+    var data = new Date();
+    var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
+    $("#DTCADASTRO").val(dataFormatada);
+
+    $("#STRCNPJ").blur(function () {
+        if (!validarCNPJ($(this).val())) {
+            $("#cnpjInvalido").css("display", "block");
+            $("STRCNPJ").focus();
+        } else {
+            $("#cnpjInvalido").css("display", "none");
+        }
+    });
 
 });
 </script>

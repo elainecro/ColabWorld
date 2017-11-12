@@ -46,6 +46,11 @@ namespace ElaineCristina09112017.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IDEMPRESA,STRNOME,STRCNPJ,DTCADASTRO,STRRAZAOSOCIAL")] Empresa empresa)
         {
+            if (CNPJExistente(empresa.STRCNPJ))
+            {
+                ModelState.AddModelError("empresa.Existe", "CNPJ já cadastrado");
+            }
+
             if (ModelState.IsValid)
             {
                 empresa.STRCNPJ = empresa.STRCNPJ.Replace(".", "").Replace("/", "").Replace("-", "");
@@ -73,14 +78,18 @@ namespace ElaineCristina09112017.Controllers
         }
 
         // POST: Empresa/Edit/5
-        // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
-        // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IDEMPRESA,STRNOME,STRCNPJ,DTCADASTRO,STRRAZAOSOCIAL")] Empresa empresa)
         {
+            if (CNPJExistente(empresa.STRCNPJ, empresa.IDEMPRESA))
+            {
+                ModelState.AddModelError("empresa.Existe", "CNPJ já cadastrado");
+            }
+
             if (ModelState.IsValid)
             {
+                empresa.STRCNPJ = empresa.STRCNPJ.Replace(".", "").Replace("/", "").Replace("-", "");
                 db.Entry(empresa).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -121,6 +130,19 @@ namespace ElaineCristina09112017.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public Boolean CNPJExistente(String strCNPJ, int idEmpresa = 0)
+        {
+            Empresa empresa= db.Empresas.Where(e => e.STRCNPJ.Equals(strCNPJ.Replace(".", "").Replace("-", "").Replace("/","")) && e.IDEMPRESA != idEmpresa).FirstOrDefault();
+            if (empresa != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

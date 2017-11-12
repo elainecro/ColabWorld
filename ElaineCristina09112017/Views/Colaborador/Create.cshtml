@@ -86,7 +86,12 @@
 $(document).ready(function(){
 
     $("#VLRSALARIO").mask("#.##0,00", { reverse: true });
+
     $("#DTCADASTRO").mask("00/00/0000", { placeholder: "__/__/____" });
+    var data = new Date();
+    var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
+    $("#DTCADASTRO").val(dataFormatada);
+
     $("#DTDEMISSAO").mask("00/00/0000", { placeholder: "__/__/____" });
 
 });
